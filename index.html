@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+<html>
+    <body>
+        <svg id="mysvg"></svg>
+    </body>
+    <script type="module">
+        import {square, draw_to_svg} from 'https://cdn.jsdelivr.net/npm/diagramatics@1.5/dist/diagramatics.min.js'
+        let mysvg = document.getElementById('mysvg');
+        let sq = square(10).fill('red');
+        draw_to_svg(mysvg, sq);
+    </script>
 </html>
