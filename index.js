@@ -6,7 +6,7 @@ draw_to_svg(mysvg, sq);
 
 let mysvg2 = document.getElementById('mysvg2');
 
-// define the `draw` function
+// define the `draw` function, without this image can't be combined
 let draw = (...diagrams) => {
     draw_to_svg(mysvg2, diagram_combine(...diagrams));
 };
