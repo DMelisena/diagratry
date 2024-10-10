@@ -3,7 +3,7 @@ import {Interactive,image,square,line,curve,V2,draw_to_svg, diagram_combine} fro
 
 let mysvg = document.getElementById('mysvg');
 
-let sq = square(10).fill('red');
+let sq = square(10).fill('black');
 draw_to_svg(mysvg, sq);
 // }}}
 
@@ -60,11 +60,12 @@ let int = new Interactive(controldiv, mysvg4);
 // build the diagram objects
 int.draw_function = (inp) => {
     let xx = inp['xx'];
-    let big_sq   = square(10).fill();
-    let small_sq = square(2).fill('red').translate(V2(xx,0));
+    let big_sqr   = square(10).fill();
+    let small_sqr = square(2).fill('red').translate(V2(xx,0));
 
-    draw4(big_sq, small_sq);
+    draw4(big_sqr, small_sqr);
 }
 
 int.slider('xx', -10, 10, 0);
-int.draw4();       
+int.draw4();
+
