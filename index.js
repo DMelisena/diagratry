@@ -1,6 +1,6 @@
+import {Interactive,image,square,line,curve,V2,draw_to_svg, diagram_combine} from 'https://cdn.jsdelivr.net/npm/diagramatics@1.5/dist/diagramatics.min.js' 
 // test{{{
 
-import {image,square,line,curve,V2,draw_to_svg, diagram_combine} from 'https://cdn.jsdelivr.net/npm/diagramatics@1.5/dist/diagramatics.min.js' 
 let mysvg = document.getElementById('mysvg');
 
 let sq = square(10).fill('red');
@@ -24,7 +24,6 @@ draw(sq2, sq3);
 // }}}
 
 // draw 3{{{
-
 let mysvg3 = document.getElementById('mysvg3');
 
 // define the `draw` function, without this image can't be combined
@@ -46,10 +45,26 @@ draw3(curv,img,l,l1);
 // }}}
 
 
-
+// draw 4{{{
+// get the svg and control element
 let mysvg4 = document.getElementById('mysvg4');
+let controldiv = document.getElementById('controldiv');
+
+// define the `draw` function
 let draw4 = (...diagrams) => {
     draw_to_svg(mysvg4, diagram_combine(...diagrams));
 };
-let sq6 = square(10).fill('green');
-draw4(sq6);
+// create the interactive object
+let int = new Interactive(controldiv, mysvg4);
+
+// build the diagram objects
+int.draw_function = (inp) => {
+    let xx = inp['xx'];
+    let big_sq   = square(10).fill();
+    let small_sq = square(2).fill('red').translate(V2(xx,0));
+
+    draw4(big_sq, small_sq);
+}
+
+int.slider('xx', -10, 10, 0);
+int.draw4();       
