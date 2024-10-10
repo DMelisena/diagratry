@@ -44,3 +44,12 @@ let img = image(src,0.2,0.2);
 // draw the diagram to `mysvg`
 draw3(curv,img,l,l1);
 // }}}
+
+
+
+let mysvg4 = document.getElementById('mysvg4');
+let draw4 = (...diagrams) => {
+    draw_to_svg(mysvg4, diagram_combine(...diagrams));
+};
+let sq6 = square(10).fill('green');
+draw4(sq6);
