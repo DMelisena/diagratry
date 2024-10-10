@@ -1,4 +1,4 @@
-import {square, draw_to_svg, diagram_combine} from 'https://cdn.jsdelivr.net/npm/diagramatics@1.5/dist/diagramatics.min.js' 
+import {image,square,line,curve,V2,draw_to_svg, diagram_combine} from 'https://cdn.jsdelivr.net/npm/diagramatics@1.5/dist/diagramatics.min.js' 
 let mysvg = document.getElementById('mysvg');
 
 let sq = square(10).fill('red');
@@ -25,9 +25,14 @@ let draw3 = (...diagrams) => {
     draw_to_svg(mysvg3, diagram_combine(...diagrams));
 };
 
+var x=0
+var y=0
 // build the diagram objects
-let sq4 = square(10).fill();
-let sq5 = square(2).fill('black')
-
+// let resistor = curve([V2])
+let curv = curve([V2(-4,0),V2(0.5,0), V2(1,1), V2(2,-1), V2(3,1), V2(4,-1),V2(5,1),V2(6,-1),V2(6.5,0),V2(10,0),V2(10,-5),V2(0,-5),V2(-9,-5),V2(-9,0),V2(-5,0)]);
+let l = line(V2(-4,1), V2(-4,-1));
+let l1 = line(V2(-5,-0.5), V2(-5,0.5));
+let src = "https://photon-ray.xyz/img/rlogo.jpg";
+let img = image(src,0.2,0.2);
 // draw the diagram to `mysvg`
-draw3(sq4, sq5);
+draw3(curv,img,l,l1);
