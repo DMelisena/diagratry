@@ -69,3 +69,28 @@ int.draw_function = (inp) => {
 int.slider('xx', -10, 10, 0);
 int.draw4();
 
+// TODO:
+// 1. Make a button to increase a value
+// 2. Show some formula and the corresponding value to that value change
+
+let mysvg5 = document.getElementById('mysvg5');
+let controldiv5 = document.getElementById('controldiv5');
+
+// define the `draw` function
+let draw5 = (...diagrams) => {
+    draw_to_svg(mysvg5, diagram_combine(...diagrams));
+};
+// create the interactive object
+let int5 = new Interactive(controldiv, mysvg5);
+
+// build the diagram objects
+int.draw_function = (inp) => {
+    let xx = inp['xx'];
+    let big_sqr   = square(10).fill();
+    let small_sqr = square(2).fill('red').translate(V2(xx,0));
+
+    draw5(big_sqr, small_sqr);
+}
+
+int.slider('xx', -10, 10, 0);
+int.draw5();
