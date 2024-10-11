@@ -81,16 +81,16 @@ let draw5 = (...diagrams) => {
     draw_to_svg(mysvg5, diagram_combine(...diagrams));
 };
 // create the interactive object
-let int5 = new Interactive(controldiv, mysvg5);
+let int5 = new Interactive(controldiv5, mysvg5);
 
 // build the diagram objects
-int.draw_function = (inp) => {
-    let xx = inp['xx'];
-    let big_sqr   = square(10).fill();
-    let small_sqr = square(2).fill('red').translate(V2(xx,0));
+int5.draw_function5 = (inp5) => {
+    let xxx = inp5['xxx'];
+    let big_sqr5   = square(10).fill();
+    let small_sqr5 = square(2).fill('grey').translate(V2(xxx,0));
 
-    draw5(big_sqr, small_sqr);
+    draw5(big_sqr5, small_sqr5);
 }
 
-int.slider('xx', -10, 10, 0);
-int.draw5();
+int5.slider('xxx', -10, 10, 0);
+int5.draw5();
